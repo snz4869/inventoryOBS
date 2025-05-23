@@ -62,7 +62,6 @@ class OrderControllerTest {
 
     @Test
     void getAllOrders_ShouldReturnPaginatedOrders() throws Exception {
-        // Prepare test data
         OrderResponseDTO order1 = createSampleOrderResponseDTO("ORD001", 1, "Pen", 5, BigDecimal.valueOf(5.00));
         OrderResponseDTO order2 = createSampleOrderResponseDTO("ORD002", 2, "Book", 10, BigDecimal.valueOf(10.00));
         List<OrderResponseDTO> orders = Arrays.asList(order1, order2);
@@ -73,7 +72,6 @@ class OrderControllerTest {
 
         given(orderService.getAllOrdersPaginated(1, 10)).willReturn(pageResponse);
 
-        // Execute & Verify
         mockMvc.perform(get("/api/orders")
                         .param("page", "1")
                         .param("size", "10"))
@@ -167,9 +165,9 @@ class OrderControllerTest {
     @Test
     void createOrder_ShouldReturnBadRequest_WhenInvalidData() throws Exception {
         OrderRequestDTO request = new OrderRequestDTO();
-        request.setOrderNo(""); // invalid - blank
-        request.setItemId(null); // invalid - null
-        request.setQty(0); // invalid - min is 1
+        request.setOrderNo("");
+        request.setItemId(null);
+        request.setQty(0);
 
         mockMvc.perform(post("/api/orders/save")
                         .contentType(MediaType.APPLICATION_JSON)

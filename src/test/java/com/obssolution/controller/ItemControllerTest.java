@@ -60,7 +60,6 @@ class ItemControllerTest {
 
     @Test
     void getAllItems_ShouldReturnPaginatedItems() throws Exception {
-        // Prepare test data
         ItemResponseDTO item1 = createSampleItemResponseDTO(1, "Pen", 5.00);
         ItemResponseDTO item2 = createSampleItemResponseDTO(2, "Book", 10.00);
         List<ItemResponseDTO> items = Arrays.asList(item1, item2);
@@ -71,7 +70,6 @@ class ItemControllerTest {
 
         given(itemService.getAllItemsPaginated(1, 5)).willReturn(pageResponse);
 
-        // Execute & Verify
         mockMvc.perform(get("/api/item")
                         .param("page", "1")
                         .param("size", "5"))

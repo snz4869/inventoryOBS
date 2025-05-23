@@ -44,9 +44,9 @@ public class InventoryService implements IInventoryService {
         return new PageResponseDTO<>(
                 dtoList,
                 inventoryPage.getNumber() + 1,
-                inventoryPage.getSize(),
+                inventoryPage.getTotalPages(),
                 inventoryPage.getTotalElements(),
-                inventoryPage.getTotalPages()
+                size
         );
     }
 
@@ -155,7 +155,7 @@ public class InventoryService implements IInventoryService {
         return dto;
     }
 
-    private void validateStock(Integer itemId, Integer changeQty, String changeType, Integer inventoryIdToExclude) {
+    public void validateStock(Integer itemId, Integer changeQty, String changeType, Integer inventoryIdToExclude) {
         int totalTopUp = inventoryRepository.sumQtyByItemIdAndType(itemId, "T").orElse(0);
         int totalWithdrawal = inventoryRepository.sumQtyByItemIdAndType(itemId, "W").orElse(0);
 

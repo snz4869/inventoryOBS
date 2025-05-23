@@ -51,9 +51,9 @@ public class OrderService implements IOrderService {
         return new PageResponseDTO<>(
                 dtoList,
                 orderPage.getNumber() + 1,
-                orderPage.getSize(),
+                orderPage.getTotalPages(),
                 orderPage.getTotalElements(),
-                orderPage.getTotalPages()
+                size
         );
     }
 
@@ -173,7 +173,7 @@ public class OrderService implements IOrderService {
         return dto;
     }
 
-    private void validateStockAvailability(Integer itemId, Integer requiredQty) {
+    public void validateStockAvailability(Integer itemId, Integer requiredQty) {
         int totalTopUp = inventoryRepository.sumQtyByItemIdAndType(itemId, "T").orElse(0);
         int totalWithdrawal = inventoryRepository.sumQtyByItemIdAndType(itemId, "W").orElse(0);
         int availableStock = totalTopUp - totalWithdrawal;

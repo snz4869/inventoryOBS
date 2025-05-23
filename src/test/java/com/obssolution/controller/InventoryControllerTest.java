@@ -60,7 +60,6 @@ class InventoryControllerTest {
 
     @Test
     void getAllInventories_ShouldReturnPaginatedInventories() throws Exception {
-        // Prepare test data
         InventoryResponseDTO inventory1 = createSampleInventoryResponseDTO(1, 1, "Pen", 5, "T");
         InventoryResponseDTO inventory2 = createSampleInventoryResponseDTO(2, 2, "Book", 10, "T");
         List<InventoryResponseDTO> inventories = Arrays.asList(inventory1, inventory2);
@@ -71,7 +70,6 @@ class InventoryControllerTest {
 
         given(inventoryService.getAllInventoriesPaginated(1, 10)).willReturn(pageResponse);
 
-        // Execute & Verify
         mockMvc.perform(get("/api/inventory")
                         .param("page", "1")
                         .param("size", "10"))
@@ -165,9 +163,9 @@ class InventoryControllerTest {
     @Test
     void createInventory_ShouldReturnBadRequest_WhenInvalidData() throws Exception {
         InventoryRequestDTO request = new InventoryRequestDTO();
-        request.setItemId(null); // invalid
-        request.setQty(-1); // invalid
-        request.setType("X"); // invalid
+        request.setItemId(null);
+        request.setQty(-1);
+        request.setType("X");
 
         mockMvc.perform(post("/api/inventory/save")
                         .contentType(MediaType.APPLICATION_JSON)

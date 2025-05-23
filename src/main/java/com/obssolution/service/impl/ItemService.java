@@ -44,9 +44,9 @@ public class ItemService implements IItemService {
         return new PageResponseDTO<>(
                 dtoList,
                 itemPage.getNumber() + 1,
-                itemPage.getSize(),
+                itemPage.getTotalPages(),
                 itemPage.getTotalElements(),
-                itemPage.getTotalPages()
+                size
         );
     }
 
@@ -128,7 +128,7 @@ public class ItemService implements IItemService {
     }
 
 
-    private ItemResponseDTO toDTO(Item item) {
+    public ItemResponseDTO toDTO(Item item) {
         ItemResponseDTO dto = new ItemResponseDTO();
         dto.setId(item.getId());
         dto.setName(item.getName());
