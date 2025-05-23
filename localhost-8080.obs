@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "bdb64e75-b3bf-4598-91a6-75b77ca7ca0f",
+		"name": "localhost:8080",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40721934"
+	},
+	"item": [
+		{
+			"name": "Item Listing with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/item?page=1&size=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"item"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/item/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Phone\",\r\n  \"price\": 349\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/item/save"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Edit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9,\r\n    \"name\": \"Phone\",\r\n    \"price\": 349\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/item/edit"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Delete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/api/item/delete/8"
+			},
+			"response": []
+		},
+		{
+			"name": "inventory Listing with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/inventory?page=1&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inventory GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/inventory/1"
+			},
+			"response": []
+		},
+		{
+			"name": "inventory Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"itemId\": 1,\r\n    \"qty\": 100,\r\n    \"type\": \"W\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/inventory/save"
+			},
+			"response": []
+		},
+		{
+			"name": "inventory Edit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"itemId\": 1,\r\n    \"qty\": 80,\r\n    \"type\": \"W\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/inventory/edit"
+			},
+			"response": []
+		},
+		{
+			"name": "Inventory Delete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/api/inventory/delete/10"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders Listing with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/orders?page=1&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/orders/O1"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderNo\": \"O12\",\r\n    \"itemId\": 3,\r\n    \"qty\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/orders/save"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders Edit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderNo\": \"O12\",\r\n    \"itemId\": 3,\r\n    \"qty\": 5,\r\n    \"price\": 25.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/orders/edit"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders Delete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/api/orders/delete/O12"
+			},
+			"response": []
+		}
+	]
+}
